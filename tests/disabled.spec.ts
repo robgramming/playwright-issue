@@ -6,12 +6,13 @@ test('Playwright selects disabled options.', async ({ page }) => {
   /* Select Option within a disabled optgroup:
     Playwright selects the disabled option. (expected "element is not enabled" error") */
   const select = page.locator("select#selectOptgroup");
-  await select.selectOption('carrot');
+  await select.selectOption({value: "carrot"}, { force: false });
   
   /* Select a disabled option:
     Playwright selects the disabled option. (expected "element is not enabled" error") */
   const select1 = page.locator("select#selectDisabled");
-  await select1.selectOption('medium');
+  //await select1.selectOption('medium');
+  await select1.selectOption({value: "medium"}, { force: false });
   
   /* Select an option in a disabled select:
     this generates an "element is not enabled" error (which is expected) */
