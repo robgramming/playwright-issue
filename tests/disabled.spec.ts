@@ -11,7 +11,6 @@ test('Playwright selects disabled options.', async ({ page }) => {
   /* Select a disabled option:
     Playwright selects the disabled option. (expected "element is not enabled" error") */
   const select1 = page.locator("select#selectDisabled");
-  //await select1.selectOption('medium');
   await select1.selectOption({value: "medium"}, { force: false });
   
   /* Select an option in a disabled select:
